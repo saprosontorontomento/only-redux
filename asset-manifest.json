@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/only-redux/static/js/main.96daab2d.chunk.js",
+    "main.js.map": "/only-redux/static/js/main.96daab2d.chunk.js.map",
+    "runtime-main.js": "/only-redux/static/js/runtime-main.ff9a69a5.js",
+    "runtime-main.js.map": "/only-redux/static/js/runtime-main.ff9a69a5.js.map",
+    "index.html": "/only-redux/index.html"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ff9a69a5.js",
+    "static/js/main.96daab2d.chunk.js"
+  ]
+}
