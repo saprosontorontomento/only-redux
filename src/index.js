@@ -1,38 +1,21 @@
 import { createStore } from "redux";
-
-const reducer = (state = 0, action) => {
-    switch (action.type) {
-        case 'INC':
-            return state + 1;
-
-        case 'DEC':
-            return state - 1;
-
-        case 'RES':
-            return 0;
-    
-        default:
-            return state;
-    }
-}
+import reducer from './reducer';
+import {inc, dec, res} from './action';
 
 const store = createStore(reducer);
+const {dispatch} = store;
 
-const inc = () => ({type: 'INC'}),
-      dec = () => ({type: 'DEC'}),
-      res = () => ({type: 'RES'});
+const bindActionCreator = (creator, dispatch) => (...args) => { // для наглядности как работает встроенная func в redux
+    dispatch(creator(...args));
+}
 
-document.getElementById('inc').addEventListener('click', () => {
-    store.dispatch(inc());
-});
+const incDispatch = bindActionCreator(inc, dispatch);
+const decDispatch = () => dispatch(dec());
+const resDispatch = () => dispatch(res());
 
-document.getElementById('dec').addEventListener('click', () => {
-    store.dispatch(dec());
-});
-
-document.getElementById('res').addEventListener('click', () => {
-    store.dispatch(res());
-});
+document.getElementById('inc').addEventListener('click', incDispatch);
+document.getElementById('dec').addEventListener('click', decDispatch);
+document.getElementById('res').addEventListener('click', resDispatch);
 
 const update = () => {
     document.getElementById('counter').textContent = store.getState();
