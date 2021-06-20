@@ -40,7 +40,7 @@
     padding: 34px 0px;
 }
 
-.btns #inc {
+.one {
     width: 65px;
     height: 65px;
 
@@ -48,7 +48,7 @@
     border-radius: 4px;
 }
 
-.btns #dec {
+.two {
     width: 65px;
     height: 65px;
 
@@ -56,7 +56,7 @@
     border-radius: 4px;
 }
 
-.btns #res {
+.three {
     width: 65px;
     height: 65px;
 
