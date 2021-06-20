@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../action';
+import { bindActionCreators } from 'redux';
 
-const Counter = ({counter, inc, dec, res}) => {
+const Counter = ({counter, inc, dec, res}) => { // ui component
     return (
         <div id="root" className="main">
             <div className="wrapper">
@@ -29,5 +32,19 @@ const Counter = ({counter, inc, dec, res}) => {
         </div>  
     )
 }
+const mapStateToProps = (state) => { // объект с теми свойства, которые мы хотим вытащить из нашего state
+    return {
+        counter: state
+    }
+}
 
-export default Counter;
+const mapDispatchToProps = (dispatch) => { // отдаёт наши actions
+    const {inc, dec, res} = bindActionCreators (actions, dispatch);
+    return {
+        inc,
+        dec,
+        res
+    }
+}
+// в коннект в первые скобки мы передаем параметры конфигурации, а во вторые компонент
+export default connect(mapStateToProps, mapDispatchToProps)(Counter); // redux logic
