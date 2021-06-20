@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../action';
-import { bindActionCreators } from 'redux';
 
 const Counter = ({counter, inc, dec, res}) => { // ui component
     return (
@@ -38,13 +37,5 @@ const mapStateToProps = (state) => { // объект с теми свойств�
     }
 }
 
-const mapDispatchToProps = (dispatch) => { // отдаёт наши actions
-    const {inc, dec, res} = bindActionCreators (actions, dispatch);
-    return {
-        inc,
-        dec,
-        res
-    }
-}
 // в коннект в первые скобки мы передаем параметры конфигурации, а во вторые компонент
-export default connect(mapStateToProps, mapDispatchToProps)(Counter); // redux logic
+export default connect(mapStateToProps, actions)(Counter); // redux logic
